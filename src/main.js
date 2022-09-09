@@ -12,7 +12,9 @@ const app = createApp(App);
 const store = createStore({
 
  state: {
-  counter: 100
+  counter: 100,
+
+  IQ_Histories: []
  },
 
  mutations: {

@@ -2,17 +2,20 @@
   <img src="~@/assets/img.jpg" />
   <IQ_Counter></IQ_Counter>
   <IQ_Adder></IQ_Adder>
+  <IQ_History></IQ_History>
 </template>
 
 <script>
 import IQ_Counter from "./components/IQ_Counter";
 import IQ_Adder from "./components/IQ_Adder";
+import IQ_History from "./components/IQ_History";
 
 export default {
   name: "App",
   components: {
     IQ_Counter,
     IQ_Adder,
+    IQ_History,
   },
 };
 </script>
