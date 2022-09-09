@@ -16,7 +16,9 @@ const store = createStore({
   state: {
     counter: 100,
 
-    IQ_Histories: []
+    IQ_Histories: [],
+
+    IQ_Search_Targets_Indexes: []
   },
 
   mutations: {
@@ -44,7 +46,7 @@ const store = createStore({
     SaveIQToHistories(state, IQ) {
       state.IQ_Histories.unshift(IQ);
       state.IQ_Histories.splice(20, 1);
-    },
+    }
   },
 
   actions: {
@@ -66,6 +68,21 @@ const store = createStore({
       console.log(randomNumber);
 
       store.commit("IQAdd", increasementObj);
+    }
+  },
+
+  getters: {
+    SearchValue: (state) => (target) => {
+      if (target.length === 0) return
+
+      state.IQ_Search_Targets_Indexes = [];
+
+      state.IQ_Histories.forEach((iq, index) => {
+        if (String(iq).includes(target)) {
+          state.IQ_Search_Targets_Indexes.push(index)
+        }
+      });
+      console.log(state.IQ_Search_Targets_Indexes);
     }
   }
 
