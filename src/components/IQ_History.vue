@@ -5,6 +5,7 @@
       :key="index"
       class="IQ-history"
       :class="IQ_Search_Targets_Indexes.includes(index) && 'focus'"
+      :id="123"
     >
       <template v-if="IQ_Histories[i - 1]">
         {{ IQ_Histories[i - 1] }}

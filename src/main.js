@@ -17,12 +17,12 @@ const store = createStore({
     counter: 100,
 
     IQ_Histories: [],
-
     IQ_Search_Targets_Indexes: []
   },
 
   mutations: {
     IQAdd(state, increasementObj) {
+      state.IQ_Search_Targets_Indexes = [];
       let title;
 
       if (increasementObj.operation_type === "minus") {
