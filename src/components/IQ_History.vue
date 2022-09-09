@@ -1,10 +1,10 @@
 <template>
   <div class="IQ-histories-container">
-    <div class="IQ-history" v-for="(i, index) in 36" :key="index">
+    <div class="IQ-history" v-for="(i, index) in 12" :key="index">
       <template v-if="IQ_Histories[i - 1]">
         {{ IQ_Histories[i - 1] }}
       </template>
-      <template v-else> -- </template>
+      <template v-else> ----- </template>
     </div>
   </div>
 </template>

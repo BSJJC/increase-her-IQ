@@ -1,6 +1,4 @@
 .IQ-histories-container {
-  position: relative;
-  top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -8,7 +6,10 @@
   padding: 10px;
 }
 .IQ-histories-container .IQ-history {
-  padding: 5px;
+  font-size: 1.5em;
+  opacity: 0.5;
+  padding: 7px;
   margin: 5px;
-  font-size: 2em;
+  border-radius: 15px;
+  background: #dedfe0;
 }

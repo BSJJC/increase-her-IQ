@@ -8,7 +8,7 @@
       <template #prepend>
         <el-button
           @click="
-            IQ_Add({
+            IQAdd({
               iq_increasement: iq_increasement,
               operation_type: 'minus',
             })
@@ -20,7 +20,7 @@
       <template #append>
         <el-button
           @click="
-            IQ_Add({
+            IQAdd({
               iq_increasement: iq_increasement,
               operation_type: 'plus',
             })
@@ -30,11 +30,18 @@
         </el-button>
       </template>
     </el-input>
+
+    <el-button
+      id="IQ-change-randomly-btn"
+      type="success"
+      @click="GetRandomNumber"
+      >IQ change randomly</el-button
+    >
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 
 export default {
   name: "IQ_Adder",
@@ -46,7 +53,8 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["IQ_Add"]),
+    ...mapMutations(["IQAdd"]),
+    ...mapActions(["GetRandomNumber"]),
   },
 };
 </script>
