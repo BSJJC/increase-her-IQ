@@ -1,20 +1,33 @@
 <template>
-  <div>
-    <button @click="test">test</button>
+  <div class="IQ_Adder_Container">
     <el-input
       v-model="iq_increasement"
       type="number"
-      placeholder="IQ increasement"
+      placeholder="Please input"
     >
       <template #prepend>
         <el-button
-          ><el-icon><Minus /></el-icon
-        ></el-button>
+          @click="
+            IQ_Add({
+              iq_increasement: iq_increasement,
+              operation_type: 'minus',
+            })
+          "
+        >
+          <el-icon><Minus /></el-icon>
+        </el-button>
       </template>
       <template #append>
         <el-button
-          ><el-icon><Plus /></el-icon
-        ></el-button>
+          @click="
+            IQ_Add({
+              iq_increasement: iq_increasement,
+              operation_type: 'plus',
+            })
+          "
+        >
+          <el-icon><Plus /></el-icon>
+        </el-button>
       </template>
     </el-input>
   </div>
@@ -32,8 +45,8 @@ export default {
     };
   },
 
-  computed: {
-    ...mapMutations(["test"]),
+  methods: {
+    ...mapMutations(["IQ_Add"]),
   },
 };
 </script>
