@@ -1,0 +1,10 @@
+:root {
+  --gtZero: #91ee91;
+  --lteZero: #f08080;
+}
+.gtZero {
+  color: var(--gtZero);
+}
+.lteZero {
+  color: var(--lteZero);
+}
