@@ -73,16 +73,14 @@ const store = createStore({
 
   getters: {
     SearchValue: (state) => (target) => {
-      if (target.length === 0) return
-
       state.IQ_Search_Targets_Indexes = [];
+      if (target.length === 0) return
 
       state.IQ_Histories.forEach((iq, index) => {
         if (String(iq).includes(target)) {
           state.IQ_Search_Targets_Indexes.push(index)
         }
       });
-      console.log(state.IQ_Search_Targets_Indexes);
     }
   }
 
@@ -91,7 +89,6 @@ const store = createStore({
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-
 
 app.use(ElementPlus).use(store);
 app.mount("#app");

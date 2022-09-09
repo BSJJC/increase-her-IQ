@@ -4,7 +4,7 @@
       v-model.trim="target"
       type="text"
       clearable
-      @change="SearchValue(target)"
+      @keyup="SearchValue(target)"
     >
     </el-input>
   </div>
