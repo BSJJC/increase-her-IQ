@@ -9,7 +9,7 @@ export default {
   name: "iq_counter",
 
   computed: {
-    ...mapState( ["counter"]),
+    ...mapState("counter", ["counter"]),
 
     counterClasses() {
       if (this.counter > 0) return "gtZero";

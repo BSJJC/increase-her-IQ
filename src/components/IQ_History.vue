@@ -21,8 +21,8 @@ export default {
   name: "IQ_History",
 
   computed: {
-    ...mapState( ["IQ_Histories", "IQ_Search_Targets_Indexes"]),
-    ...mapGetters( ["SearchValue"]),
+    ...mapState("history", ["IQ_Histories", "IQ_Search_Targets_Indexes"]),
+    ...mapGetters(["SearchValue"]),
   },
 };
 </script>

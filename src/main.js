@@ -8,46 +8,33 @@ import { ElNotification } from "element-plus";
 
 import axios from 'axios'
 
-import { createStore } from "vuex"
 
-const app = createApp(App);
-const store = createStore({
 
-  state: {
-    counter: 100,
-
-    IQ_Histories: [],
-
-    IQ_Search_Targets_Indexes: [],
-  },
-
+const m1 = {
+  namespaced: true,
   mutations: {
     IQAdd(state, increasementObj) {
-      state.IQ_Search_Targets_Indexes = [];
+      store.state.IQ_Search_Targets_Indexes = [];
       let title;
 
       if (increasementObj.operation_type === "minus") {
-        state.counter -= parseInt(increasementObj.iq_increasement);
-        title = `Her IQ subtracted ${increasementObj.iq_increasement}!`
+        store.state.counter.counter -= parseInt(increasementObj.iq_increasement);
+        store.title = `Her IQ subtracted ${increasementObj.iq_increasement}!`
       }
       else {
-        state.counter += parseInt(increasementObj.iq_increasement);
+        store.state.counter.counter += parseInt(increasementObj.iq_increasement);
         title = `Her IQ increased ${increasementObj.iq_increasement}!`
       }
 
       ElNotification({
         title: title,
-        message: `It's ${state.counter} now!`,
+        message: `It's ${store.state.counter} now!`,
         type: "success",
       });
 
-      store.commit("SaveIQToHistories", state.counter)
+      store.state.history.IQ_Histories.unshift(store.state.counter.counter);
+      store.state.history.IQ_Histories.splice(20, 1);
     },
-
-    SaveIQToHistories(state, IQ) {
-      state.IQ_Histories.unshift(IQ);
-      state.IQ_Histories.splice(20, 1);
-    }
   },
 
   actions: {
@@ -66,21 +53,55 @@ const store = createStore({
         operation_type: "plus"
       }
 
-      store.commit("IQAdd", increasementObj);
+      store.commit("adder/IQAdd", increasementObj);
     }
   },
+
+}
+
+
+const m2 = {
+  namespaced: true,
+  state: {
+    counter: 100,
+  }
+}
+
+
+const m3 = {
+  namespaced: true,
+
+  state: {
+    IQ_Histories: [],
+    IQ_Search_Targets_Indexes: [],
+  }
+}
+
+
+
+import { createStore } from "vuex"
+
+const app = createApp(App);
+const store = createStore({
 
   getters: {
     SearchValue: state => target => {
       state.IQ_Search_Targets_Indexes = [];
       if (target.length === 0) return
 
-      state.IQ_Histories.forEach((iq, index) => {
+      store.history.state.IQ_Histories.forEach((iq, index) => {
         if (String(iq).includes(target)) {
           state.IQ_Search_Targets_Indexes.push(index)
         }
       });
     }
+  },
+
+
+  modules: {
+    adder: m1,
+    counter: m2,
+    history: m3
   }
 
 });
