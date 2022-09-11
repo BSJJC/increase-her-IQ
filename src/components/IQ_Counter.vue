@@ -1,5 +1,5 @@
 <template>
-  <h1 :class="counterClasses">{{ counter }}</h1>
+  <h1 :class="counterClasses">Her IQ: {{ counter }}</h1>
 </template>
 
 <script>
