@@ -5,7 +5,6 @@
       :key="index"
       class="IQ-history"
       :class="IQ_Search_Targets_Indexes.includes(index) && 'focus'"
-      :id="123"
     >
       <template v-if="IQ_Histories[i - 1]">
         {{ IQ_Histories[i - 1] }}
@@ -22,8 +21,8 @@ export default {
   name: "IQ_History",
 
   computed: {
-    ...mapState(["IQ_Histories", "IQ_Search_Targets_Indexes"]),
-    ...mapGetters(["SearchValue"]),
+    ...mapState( ["IQ_Histories", "IQ_Search_Targets_Indexes"]),
+    ...mapGetters( ["SearchValue"]),
   },
 };
 </script>

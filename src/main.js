@@ -17,7 +17,8 @@ const store = createStore({
     counter: 100,
 
     IQ_Histories: [],
-    IQ_Search_Targets_Indexes: []
+
+    IQ_Search_Targets_Indexes: [],
   },
 
   mutations: {
@@ -65,14 +66,12 @@ const store = createStore({
         operation_type: "plus"
       }
 
-      console.log(randomNumber);
-
       store.commit("IQAdd", increasementObj);
     }
   },
 
   getters: {
-    SearchValue: (state) => (target) => {
+    SearchValue: state => target => {
       state.IQ_Search_Targets_Indexes = [];
       if (target.length === 0) return
 

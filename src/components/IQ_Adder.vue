@@ -53,8 +53,8 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["IQAdd"]),
-    ...mapActions(["GetRandomNumber"]),
+    ...mapMutations( ["IQAdd"]),
+    ...mapActions( ["GetRandomNumber"]),
   },
 };
 </script>
